@@ -25,4 +25,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/bingos/module-install-readmefrompod.git
-version: 0.02
+version: 0.04
