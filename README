@@ -9,6 +9,8 @@ SYNOPSIS
       author 'Vestan Pants';
       license 'perl';
       readme_from 'lib/Some/Module.pm';
+      my @options = ( '--backlink="Back to Top" );
+      readme_from 'lib/Some/Module.pm', 'clean', 'htm', 'SomeModule.html', @options;
 
     A "README" file will be generated from the POD of the indicated module
     file.
@@ -21,22 +23,51 @@ SYNOPSIS
 DESCRIPTION
     Module::Install::ReadmeFromPod is a Module::Install extension that
     generates a "README" file automatically from an indicated file
-    containing POD, whenever the author runs "Makefile.PL".
+    containing POD, whenever the author runs "Makefile.PL". Several output
+    formats are supported: plain-text, HTML, PDF or manpage.
 
 COMMANDS
     This plugin adds the following Module::Install command:
 
     "readme_from"
         Does nothing on the user-side. On the author-side it will generate a
-        "README" file using Pod::Text from the POD in the file passed as a
-        parameter.
+        "README" file.
 
           readme_from 'lib/Some/Module.pm';
 
         If a second parameter is set to a true value then the "README" will
         be removed at "make distclean".
 
-          readme_from 'lib/Some/Module.pm' => 'clean';
+          readme_from 'lib/Some/Module.pm', 1;
+
+        A third parameter can be used to determine the format of the
+        "README" file.
+
+          readme_from 'lib/Some/Module.pm', 1, 'htm';
+
+        Valid formats are:
+
+        txt, text
+            Produce a plain-text "README" file using Pod::Text. The 'txt'
+            format is the default.
+
+        htm, html
+            Produce an HTML "README.htm" file using Pod::Html.
+
+        man Produce a "README.1" manpage using Pod::Man.
+
+        pdf Produce a PDF "README.pdf" file with App::pod2pdf if this module
+            is installed.
+
+        A fourth parameter can be used to supply an output filename.
+
+          readme_from 'lib/Some/Module.pm', 0, 'pdf', 'SomeModule.pdf';
+
+        Finally, you can pass optional arguments to the POD formatter that
+        handles the desired format.
+
+          my @options = ( 'release' => 1.03, 'section' => 8 ); # options for Pod::Man
+          readme_from 'lib/Some/Module.pm', 1, 'man', undef, @options;
 
         If you use the "all_from" command, "readme_from" will default to
         that value.
@@ -59,4 +90,10 @@ SEE ALSO
     Module::Install
 
     Pod::Text
+
+    Pod::Html
+
+    Pod::Man
+
+    App::pod2pdf
 

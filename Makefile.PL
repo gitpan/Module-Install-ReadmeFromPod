@@ -1,4 +1,5 @@
 use strict;
+use lib 'lib';
 use inc::Module::Install;
 use Config;
 
@@ -9,8 +10,11 @@ auto_license holder => 'Chris Williams';
 build_requires 'Test::More' => 0.47;
 build_requires 'File::Temp' => 0;
 build_requires 'Capture::Tiny' => 0.05;
-requires 'Module::Install' => 0.85;
+requires 'Module::Install' => 1.00;
 requires 'Pod::Text' => 3.13;
+requires 'Pod::Html' => 0;
+requires 'Pod::Man' => 0;
+recommends 'App::pod2pdf';
 readme_from;    # Self hosting!
 githubmeta;
 clean_files 'dist have_make LICENSE';
@@ -20,4 +24,5 @@ if ( $Config{make} and can_run( $Config{make} ) ) {
   print HAVEMAKE "meep\n";
   close HAVEMAKE;
 }
+makemaker_args(dist => { PREOP => "$^X ./tools/git-log.pl > ./Changes" });
 WriteAll();
