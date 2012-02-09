@@ -1,4 +1,20 @@
 ==============================
+2012-02-08 23:56:12 +0000 0.16
+==============================
+
+  commit 2d802f6a6e6ade42fd71fd921c7e35e6d745593b
+  Author: Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
+  Date:   Wed Feb 8 23:56:12 2012 +0000
+  
+    Bump to version 0.16
+
+  commit 304c9299469efa5df6df935fbba10e5ff47b7e6c
+  Author: Florent Angly <florent.angly@gmail.com>
+  Date:   Tue Feb 7 16:50:28 2012 +1000
+  
+    Implemented mechanism to pass options to readme_from as a hashref 
+
+==============================
 2012-02-06 13:20:30 +0000 0.14
 ==============================
 
