@@ -36,4 +36,4 @@ resources:
     type: git
     url: git://github.com/bingos/module-install-readmefrompod.git
     web: https://github.com/bingos/module-install-readmefrompod/tree
-version: 0.16
+version: 0.18
