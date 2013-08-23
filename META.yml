@@ -32,8 +32,5 @@ requires:
 resources:
   homepage: https://github.com/bingos/module-install-readmefrompod/tree
   license: http://dev.perl.org/licenses/
-  repository:
-    type: git
-    url: git://github.com/bingos/module-install-readmefrompod.git
-    web: https://github.com/bingos/module-install-readmefrompod/tree
-version: 0.20
+  repository: git://github.com/bingos/module-install-readmefrompod.git
+version: 0.22
